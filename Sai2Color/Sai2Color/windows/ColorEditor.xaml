@@ -1,0 +1,67 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sai2Color.windows"
+        xmlns:ColorPicker="clr-namespace:ColorPicker;assembly=ColorPicker" x:Name="ColorEditorWindow" x:Class="Sai2Color.windows.ColorEditor"
+        mc:Ignorable="d"
+        Title="ColorEditor" Height="554" Width="786" Background="#FF252525" Foreground="White" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="pack://application:,,,/ColorPicker;component/Styles/DefaultColorPickerStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="156*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="581*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <ColorPicker:StandardColorPicker Margin="20,129,0,29" x:Name="standard_picker"
+        Style="{StaticResource DefaultColorPickerStyle}"
+        UseHintColor="True"
+        ColorState="{Binding ColorState, Delay=10, ElementName=maindisplay, Mode=TwoWay}"
+        SecondColorState="{Binding SecondColorState, ElementName=maindisplay, Mode=TwoWay}" HorizontalAlignment="Left" Width="364" Grid.ColumnSpan="3" />
+        <Grid x:Name="Primary" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Margin="8,10,0,0" Height="32">
+            <Rectangle x:Name="TheColorPrimary" HorizontalAlignment="Left" Stroke="Black" Width="45" Fill="#FFC0C0C0" KeyDown="TheColorPrimary_KeyDown" MouseDown="Color_MouseDown"/>
+            <Label Content="Primary" HorizontalAlignment="Left" Margin="50,3,0,0" VerticalAlignment="Top" Height="26" Width="52" Foreground="#FFE8E8E8"/>
+        </Grid>
+        <Grid x:Name="Secondary" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Margin="8,51,0,0" Height="32">
+            <Rectangle x:Name="TheColorSecond" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="45" Fill="White" MouseDown="Color_MouseDown"/>
+            <Label Content="Secondary" HorizontalAlignment="Left" Margin="50,3,0,0" VerticalAlignment="Top" Height="26" Width="65" Foreground="#FFE8E8E8"/>
+        </Grid>
+        <Grid x:Name="Ternary" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="8,92,0,0" Height="32">
+            <Rectangle x:Name="TheColorTerna" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="45" Fill="#FFCCCCCC" MouseDown="Color_MouseDown"/>
+            <Label Content="Ternary" HorizontalAlignment="Left" Margin="52,3,0,0" VerticalAlignment="Top" Height="26" Width="48" Foreground="#FFE8E8E8"/>
+        </Grid>
+        <Grid x:Name="Text" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="57,10,0,0" Height="32">
+            <Rectangle x:Name="TheColorText" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="45" Fill="#FF000000" MouseDown="Color_MouseDown"/>
+            <Label Content="Text" HorizontalAlignment="Left" Margin="50,3,0,0" VerticalAlignment="Top" Height="26" Width="31" Foreground="#FFE8E8E8"/>
+        </Grid>
+        <Grid x:Name="Select1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="57,51,0,0" Height="32">
+            <Rectangle x:Name="TheColorSelect" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="45" Fill="#FFBBBBBB" MouseDown="Color_MouseDown"/>
+            <Label Content="SelectablePrimary" HorizontalAlignment="Left" Margin="50,3,0,0" VerticalAlignment="Top" Height="26" Width="104" Background="{x:Null}" Foreground="#FFE8E8E8"/>
+        </Grid>
+        <Grid x:Name="Select2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="169" Margin="57,92,0,0" Height="32">
+            <Rectangle x:Name="TheColorSelect2" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="45" Fill="#FF8E8E8E" MouseDown="Color_MouseDown"/>
+            <Label Content="SelectableSecondary" HorizontalAlignment="Left" Margin="50,3,0,0" VerticalAlignment="Top" Height="26" Width="119" Background="{x:Null}" Foreground="#FFE8E8E8"/>
+
+
+        </Grid>
+        <Button x:Name="Btn_load_theme" Grid.Column="2" Content="Load theme" HorizontalAlignment="Left" Margin="472,20,0,0" VerticalAlignment="Top" Width="99" Height="22" Click="Btn_load_theme_Click"/>
+        <ComboBox x:Name="cb_themes" Grid.Column="2" HorizontalAlignment="Left" Margin="291,20,0,0" VerticalAlignment="Top" Width="176"/>
+        <Button x:Name="Btn_save_theme" Grid.Column="2" Content="Save..." HorizontalAlignment="Left" Margin="472,51,0,0" VerticalAlignment="Top" Width="99" Height="18" Click="Btn_save_theme_Click" />
+        <TextBox x:Name="name_file" Grid.Column="2" HorizontalAlignment="Left" Margin="291,51,0,0" TextWrapping="Wrap" Text="themeName" VerticalAlignment="Top" Width="176"/>
+        <Label x:Name="labelWarning" Grid.Column="2" Content="Advanced Editor&#xD;&#xA;Not YET Done" HorizontalAlignment="Left" Margin="272,214,0,0" VerticalAlignment="Top" Background="Black" Foreground="Red" Height="159" Width="299" FontSize="36"/>
+        <Button x:Name="ApplyColor" Content="Apply color" Margin="33,509,0,9" Click="ApplyColor_Click" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="338"/>
+
+
+    </Grid>
+</Window>

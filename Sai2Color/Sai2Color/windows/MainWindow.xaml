@@ -1,0 +1,16 @@
+﻿<Window x:Name="MainWindow_" x:Class="Sai2Color.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sai2Color"
+        mc:Ignorable="d"
+        Title="Hello Yah!" Height="426" Width="768" Closing="MainWindow__Closing">
+    <Grid Background="#FF16171B">
+        <Button x:Name="SaveAndRun" Content="Save and Run!" Margin="10,10,0,0" VerticalAlignment="Top" Height="45"  Background="#FF383838" Foreground="#FFE6E6E6" BorderBrush="#FF292929" HorizontalAlignment="Left" Width="370" Click="SaveAndRun_ClickAsync"/>
+        <Button x:Name="Editor" Content="Color Editor" Margin="407,10,17,0" VerticalAlignment="Top" Height="45" BorderBrush="#FF313131" Background="#FF383838" Foreground="#FFE6E4E1" Click="Editor_Click"/>
+        <Label x:Name="ByMe" Content="By SrShadowy" HorizontalAlignment="Left" Margin="10,0,0,24" Foreground="#FFBBBBBB" Height="26" VerticalAlignment="Bottom"/>
+        <ListBox x:Name="appList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,60,17,55" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1"/>
+
+    </Grid>
+</Window>
